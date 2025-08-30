@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain, SequentialChain
@@ -7,9 +8,11 @@ from langchain.chains import LLMChain, SequentialChain
 # Load environment variables
 load_dotenv()
 
-# Try both possible env variable names for compatibility
-geminiapi_key = os.getenv("geminiapi_key") or os.getenv("GOOGLE_API_KEY")
-
+# # Try both possible env variable names for compatibility
+# geminiapi_key = os.getenv("geminiapi_key") or os.getenv("GOOGLE_API_KEY")
+api_key = os.getenv("GOOGLE_API_KEY")
+if not api_key:
+    raise ValueError("Google Gemini API key not found in environment variables.")
 # Raise error if API key is missing
 if not geminiapi_key:
     raise ValueError("Google Gemini API key not found in environment variables.")
@@ -47,3 +50,4 @@ def generate_name(cuisine):
     # Call the chain with a dictionary input
     response = chain({"cuisine": cuisine})
     return response
+
