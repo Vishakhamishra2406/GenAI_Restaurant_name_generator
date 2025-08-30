@@ -10,7 +10,7 @@ load_dotenv()
 
 # # Try both possible env variable names for compatibility
 # geminiapi_key = os.getenv("geminiapi_key") or os.getenv("GOOGLE_API_KEY")
-api_key = os.getenv("GOOGLE_API_KEY")
+api_key = os.getenv("geminiapi_key")
 if not api_key:
     raise ValueError("Google Gemini API key not found in environment variables.")
 # Raise error if API key is missing
@@ -50,4 +50,5 @@ def generate_name(cuisine):
     # Call the chain with a dictionary input
     response = chain({"cuisine": cuisine})
     return response
+
 
