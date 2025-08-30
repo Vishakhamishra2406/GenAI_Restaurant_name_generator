@@ -7,7 +7,7 @@ It uses **Google Gemini (via LangChain)** to generate responses and **Streamlit*
 📺 Demo
 👉 Try the live demo here: Restaurant Name Generator App
 
-https://genairestaurantnamegenerator.streamlit.app/
+ https://restaurant-app-165165518476.us-central1.run.app
 
 
 ## 🚀 Features
